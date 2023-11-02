@@ -1,0 +1,163 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+/* Root Variables */
+:root {
+  /* Text Related */
+  --font-semi-bold: 600;
+  --font-regular: 400;
+
+  /* Colors */
+  --color-dark-blue: #13445f;
+  --color-medium-blue: #1a5f85;
+  --color-light-blue: #9aceeb;
+  --color-white: #fafafa;
+  --color-green: #00a651;
+  --color-red: #e75f57;
+}
+
+/* Global Styles */
+* {
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: var(--font-semi-bold);
+  color: var(--color-dark-blue);
+}
+
+h1 { 
+  font-size: 32px; 
+}
+h2 { 
+  font-size: 24px; 
+}
+h3 { 
+  font-size: 20px; 
+}
+
+/* Table Header Styles */
+.table-header {
+  font-weight: var(--font-semi-bold);
+  color: var(--color-dark-blue);
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-items {
+  font-weight: var(--font-regular);
+  color: var(--color-dark-blue);
+  font-size: 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Custom Class */
+.try {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-dark-blue);
+  text-align: left;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Form Styles */
+form.login_form {
+  text-align: left;
+}
+
+div.login_inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+div.table-container
+{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px #333333;
+}
+
+/* Table Styles */
+table.table_main {
+  width: 75%;
+  border: 1px solid black;
+  top: 50%;
+  left: 50%;
+}
+
+/* Center Card Styles */
+div.center_card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 85%;
+  width: 75%;
+}
+
+/* Header Styles */
+div.header {
+  width: 100%;
+  height: 100px;
+  background-color: var(--color-medium-blue);
+  color: var(--color-white);
+  box-shadow: 1px 1px 2px #333333;
+}
+
+tr.table-divider
+{
+  border-bottom: 2px solid var(--color-light-blue);
+  width: 75%; 
+  margin: 0 auto;
+
+}
+/* Utility Classes */
+.center {
+  text-align: center;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.yes-color {
+  color: var(--color-green);
+}
+
+.no-color {
+  color: var(--color-red);
+}
+
+/* Logout Button Styles */
+.button--logout {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+/* Body Styles */
+body.body_main {
+  background-color: var(--color-white);
+}
+
+body.body_login {
+  background-color: #f0f5f8;
+}
+
+/* Login Center Styles */
+div.login_center {
+  width: 615px;
+  height: 768px;
+  border-radius: 30px;
+  background-color: #fafafa;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 1px 2px #333333;
+}
