@@ -1,10 +1,11 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 /* Root Variables */
 :root {
   /* Text Related */
   --font-semi-bold: 600;
+  --font-medium: 500;
   --font-regular: 400;
 
   /* Colors */
@@ -14,55 +15,77 @@
   --color-white: #fafafa;
   --color-green: #00a651;
   --color-red: #e75f57;
+
 }
 
 /* Global Styles */
 * {
   font-family: 'Poppins', sans-serif;
-  color: #333333;
+  box-sizing: border-box;
 }
 
 /* Headings */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: var(--font-semi-bold);
   color: var(--color-dark-blue);
 }
 
-h1 { 
-  font-size: 32px; 
-}
-h2 { 
-  font-size: 24px; 
-}
-h3 { 
-  font-size: 20px; 
+h1 {
+  font-size: 32px;
 }
 
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.white-text {
+  color: white;
+}
+.italic{
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+}
 /* Table Header Styles */
+.table-header,
+.table-items {
+  text-align: left;
+  vertical-align: middle;
+}
+
 .table-header {
   font-weight: var(--font-semi-bold);
   color: var(--color-dark-blue);
   font-size: 20px;
-  text-align: center;
-  vertical-align: middle;
+
 }
 
 .table-items {
   font-weight: var(--font-regular);
   color: var(--color-dark-blue);
   font-size: 16px;
-  text-align: left;
-  vertical-align: middle;
 }
 
 /* Custom Class */
-.try {
+.form-header {
   font-weight: 600;
   font-size: 16px;
   color: var(--color-dark-blue);
   text-align: left;
   margin-bottom: 8px;
+  margin-left: 50px;
   display: block;
+
+}
+
+.form-header-addbook {
+  margin-left: 0px;
 }
 
 /* Form Styles */
@@ -70,53 +93,99 @@ form.login_form {
   text-align: left;
 }
 
-div.login_inputs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px; 
+
+div.login-form {
+  padding: 20px;
+  margin: auto;
 }
-div.table-container
-{
+
+div.table-container {
   background-color: white;
   border-radius: 10px;
-  box-shadow: 1px 1px 2px #333333;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 
 /* Table Styles */
 table.table_main {
-  width: 75%;
-  border: 1px solid black;
-  top: 50%;
-  left: 50%;
-}
+  width: 100%;
 
-/* Center Card Styles */
-div.center_card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 85%;
-  width: 75%;
+
 }
 
 /* Header Styles */
+div.table-title,
 div.header {
   width: 100%;
+  text-align: left;
+}
+
+div.table-title {
+  background-color: #F0F5F8;
+  height: 75px;
+  padding: 25px 30px;
+  border-radius: 10px;
+}
+
+div.addbook-title {
+  background-color: #F0F5F8;
+  width: 50%;
+  margin: auto;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+div.addbook-left {
+  width: 50%;
+  flex: 1;
+}
+
+div.addbook-right {
+  width: 50%;
+  flex: 1;
+}
+
+div.header {
   height: 100px;
   background-color: var(--color-medium-blue);
-  color: var(--color-white);
-  box-shadow: 1px 1px 2px #333333;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 35px 100px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 
-tr.table-divider
-{
+tr.table-divider {
   border-bottom: 2px solid var(--color-light-blue);
-  width: 75%; 
+  width: 75%;
   margin: 0 auto;
-
 }
+
+/* shorthand notation */
+/* PADDING: Ypx, Xpx, vertical, horizontal */
+
+div.table-card,
+div.addbook-card {
+  padding: 60px 85px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+div.addbook-card {
+
+  width: 50%;
+  margin: auto;
+  position: relative;
+  display: flex;
+}
+
+div.main-body {
+  padding: 25px 100px;
+}
+
+
 /* Utility Classes */
 .center {
   text-align: center;
@@ -124,6 +193,10 @@ tr.table-divider
 
 .middle {
   vertical-align: middle;
+}
+
+.margin-bottom {
+  margin-bottom: 12px;
 }
 
 .yes-color {
@@ -134,10 +207,90 @@ tr.table-divider
   color: var(--color-red);
 }
 
-/* Logout Button Styles */
-.button--logout {
-  background-color: var(--color-red);
-  color: var(--color-white);
+/** Common Border Radii and Width */
+.button-outlined-white,
+.button-outlined-blue,
+.button-filled-blue,
+.button-outlined-red,
+.input-field {
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+/* Inputs */
+
+.input-field {
+  width: 277px;
+  height: 40px;
+  border-color: var(--color-light-blue);
+  background-color: transparent;
+  color: var(--color-dark-blue);
+  font-size: 14px;
+  font-weight: var(--font-regular);
+
+}
+
+/* Buttons */
+
+.button-outlined-white,
+.button-outlined-red {
+  width: 137px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: var(--font-medium);
+  color: white;
+  border-color: white;
+  background-color: transparent;
+}
+
+.button-outlined-red {
+  color: var(--color-red);
+  border-color: var(--color-red);
+}
+
+.button-outlined-blue {
+  width: 129px;
+  height: 29px;
+  font-size: 16px;
+  font-weight: var(--font-medium);
+  color: var(--color-dark-blue);
+  border-color: var(--color-dark-blue);
+  background-color: transparent;
+}
+
+.button-filled-blue {
+  height: 40px;
+  width: 165px;
+  color: white;
+  background-color: var(--color-dark-blue);
+  font-size: 14px;
+  font-weight: var(--font-semi-bold);
+  border-color: var(--color-dark-blue);
+  cursor: pointer;
+
+}
+
+.button-addbook {
+
+  margin-left: 17%;
+}
+
+.invisible-button {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.link-text {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: var(--font-semi-bold);
+  color: var(--color-dark-blue);
+}
+
+.link-text:hover {
+  text-decoration: underline;
 }
 
 /* Body Styles */
@@ -159,5 +312,18 @@ div.login_center {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 1px 1px 2px #333333;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 75px 100px;
+
+}
+
+
+
+footer {
+  height: fit-content;
+  background-color: var(--color-medium-blue);
+  padding: 30px 100px;
+  text-align: center;
+  margin-top: 60px;
 }

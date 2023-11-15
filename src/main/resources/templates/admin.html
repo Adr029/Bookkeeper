@@ -1,93 +1,151 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Admin</title>
     <!-- Bootstrap CSS -->
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
-    <!-- local stylesheet -->
-    <link rel="stylesheet" th:href="@{/style.css}">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
 
+
+    <!--*Local Stylesheet -->
+    <link rel="stylesheet" th:href="@{style.css}">
+
+    
+    <!-- Tab Icon -->
+    <link rel="icon" href="./images/icon-tab.png">
 </head>
+
 <body class="body_main">
-<!-- Bootstrap JS -->
-<script crossorigin="anonymous"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="header">
+
+        <img src = "./images/header-banner.png" width = "275px">
+        <!-- *Logout Button -->
+        <form method="post" th:action="@{/adminlogout}">
+            <button class="button-outlined-white" type="submit">LOG OUT</button>
+        </form>
+    </div>
+
+    <!--* Users Database-->
+    <div class="main-body">
+        <div class="table-title">
+            <h2>USERS</h2>
+        </div>
+        <div class="table-card">
+
+            <table class="table_main">
+
+                <tr>
+                    <th class="table-header">ID&nbsp;</th>
+                    <th class="table-header">First Name&nbsp;</th>
+                    <th class="table-header">Last Name&nbsp;</th>
+                    <th class="table-header">Borrowed Book&nbsp;</th>
+                </tr>
+                <tr class="table-divider"></tr>
 
 
-<!-- Users Database-->
 
-USERS
-
-<table class="table_main">
-    <tr>
-        <th class="center middle">ID&nbsp;</th>
-        <th class="center middle">First Name&nbsp;</th>
-        <th class="center middle">Last Name&nbsp;</th>
-        <th class="center middle">Borrowed Book&nbsp;</th>
-    </tr>
-
-    <tr th:each="u: ${users}">
-        <td class="center middle" th:text="${u.id}"></td>
-        <td class="center middle" th:text="${u.firstName}"></td>
-        <td class="center middle" th:text="${u.lastName}"></td>
-        <td class="center middle" th:text="${u.borrowedBook}"></td>
-    </tr>
-</table>
-
-<!-- Books Database-->
-BOOKS
+                <tr th:each="u: ${users}">
+                    <td class="table-items" th:text="${u.id}"></td>
+                    <td class="table-items" th:text="${u.firstName}"></td>
+                    <td class="table-items" th:text="${u.lastName}"></td>
+                    <td class="table-items" th:text="${u.borrowedBook}"></td>
+                </tr>
 
 
-<table class="table_main">
-    <tr>
-        <th class="center middle">ID&nbsp;</th>
-        <th class="center middle">Title&nbsp;</th>
-        <th class="center middle">Author&nbsp;</th>
-        <th class="center middle">Genre&nbsp;</th>
-        <th class="center middle">Available&nbsp;</th>
-        <th class="center middle">Borrower</th>
-    </tr>
 
-    <tr th:each="u: ${books}">
-        <td class="center middle" th:text="${u.id}"></td>
-        <td class="center middle" th:text="${u.title}"></td>
-        <td class="center middle" th:text="${u.author}"></td>
-        <td class="center middle" th:text="${u.genre}"></td>
-        <td class="center middle" th:text="${u.isAvailable} ? 'yes' : 'no'"></td>
-        <td class="center middle" th:text="${u.borrowerName}"></td>
-        <td class="center middle">
-            <form method="post" th:action="@{/admin/deletebook}">
-                <input name="_method" type="hidden" value="DELETE"/>
-                <input name="bookId" th:value="${u.id}" type="hidden"/>
-                <button type="submit">DELETE</button>
-            </form>
+            </table>
+        </div>
+        <br>
+        <!--* Books Database-->
 
-        </td>
+        <div class="table-title">
+            <h2>BOOKS</h2>
+        </div>
 
-        <td class="center middle">
-            <form method="get" th:action="@{/admin/editbook}">
-                <input name="bookId" th:value="${u.id}" type="hidden"/>
-                <button type="submit">EDIT</button>
-            </form>
-        </td>
 
-    </tr>
-    <!--TODO add edit and delete buttons-->
-</table>
+        <div class="table-card">
 
-<form method="post" th:action="@{/admin/addbook}">
-    Title <input name="title" type="text"/><br>
-    Author <input name="author" type="text"/><br>
-    Genre <input name="genre" type="text"/><br>
-    <button class="btn btn-info" type="submit">Add Book</button>
-</form>
+            <table class="table_main">
+                <tr>
+                    <th class="table-header">ID&nbsp;</th>
+                    <th class="table-header">Title&nbsp;</th>
+                    <th class="table-header">Author&nbsp;</th>
+                    <th class="table-header">Genre&nbsp;</th>
+                    <th class="table-header">Available&nbsp;</th>
+                    <th class="table-header">Borrower</th>
+                </tr>
+                <tr class="table-divider"></tr>
 
-<!-- *Logout Button -->
-<form method="post" th:action="@{/adminlogout}">
-    <button class="button--logout" type="submit">Logout</button>
-</form>
+
+                <tr th:each="u: ${books}">
+                    <td class="table-items" th:text="${u.id}"></td>
+                    <td class="table-items" th:text="${u.title}"></td>
+                    <td class="table-items" th:text="${u.author}"></td>
+                    <td class="table-items" th:text="${u.genre}"></td>
+                    <td class="table-items" th:class="${u.isAvailable} ? 'yes-color' : 'no-color'"
+                        th:text="${u.isAvailable} ? 'yes' : 'no'"></td>
+                    <td class="table-items" th:text="${u.borrowerName}"></td>
+
+                    <td class="table-items">
+                        <form method="get" th:action="@{/admin/editbook}">
+                            <input name="bookId" th:value="${u.id}" type="hidden" />
+                            <button type="submit" class="invisible-button">
+                                <img src="./images/edit.png">
+                            </button>
+                        </form>
+                    </td>
+
+                    <td class="table-items">
+                        <form method="post" th:action="@{/admin/deletebook}">
+                            <input name="_method" type="hidden" value="DELETE" />
+                            <input name="bookId" th:value="${u.id}" type="hidden" />
+                            <button type="submit" class="invisible-button">
+                                <img src="./images/delete.png">
+                            </button>
+                        </form>
+
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="addbook-title">
+            <h2>ADD BOOKS</h2>
+        </div>
+        <div class="addbook-card">
+            <div class="addbook-left">
+                <form method="post" th:action="@{/admin/addbook}">
+                    <span class="form-header form-header-addbook">Title </span> <input name="title" type="text"
+                        class="input-field" /><br>
+                    <span class="form-header form-header-addbook">Author </span> <input name="author" type="text"
+                        class="input-field" /><br>
+                    <span class="form-header form-header-addbook">Genre </span> <input name="genre" type="text"
+                        class="input-field" /><br><br>
+
+                    <button class="button-filled-blue button-addbook" type="submit">+ ADD</button>
+                </form>
+            </div>
+
+            <div class="addbook-right">
+                <img src="./images/addbook.png" alt="Add Book Image">
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <footer>
+        <h1 class="white-text">Bookkeeper</h1>
+        <h3 class= "white-text italic">Explore by reading!</h3>
+    </footer>
+
 </body>
+
 </html>
