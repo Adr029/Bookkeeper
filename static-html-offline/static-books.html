@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Books</title>
+    <!--* Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+
+    <!--* local stylesheet -->
+    <link rel="stylesheet" href="../src/main/resources/static/style.css">
+    <!-- Tab -->
+    <link rel = "icon" href="../src/main/resources/static/images/icon-tab.png">
+
+</head>
+
+<body class="body_main">
+
+    <div class="header">
+
+        <img src = "../src/main/resources/static/images/header-banner.png" width = "275">
+
+        <!-- *Logout Button -->
+        <form method="post" th:action="@{/userlogout}">
+
+        </form>
+        <a href="static-login.html">
+            <button class="button-outlined-white" type="submit">LOG OUT</button>
+        </a>
+    </div>
+    <div class="main-body">
+        <br>
+        <!-- TODO IMPLEMENT ROW SPACING -->
+        <!-- MOCK DATA  -->
+        <div class="table-card">
+
+            <table class="table_main">
+                <tr>
+                    <th class="table-header">Title&nbsp;</th>
+                    <th class="table-header">Author&nbsp;</th>
+                    <th class="table-header">Genre&nbsp;</th>
+                    <th class="table-header">Available&nbsp;</th>
+                    <th class="table-header"></th>
+                </tr>
+                <tr class="table-divider"></tr>
+
+                <tr>
+                    <td class="table-items">Book 1</td>
+                    <td class="table-items">Author 1</td>
+                    <td class="table-items">Fiction</td>
+                    <td class="table-items yes-color">Yes</td>
+                    <td class="table-items">
+                        <form method="post" action="/books/borrow">
+                            <input name="_method" type="hidden" value="PATCH" />
+                            <input name="bookId" type="hidden" value="1" />
+                            <button type="submit" class="button-outlined-blue">Borrow</button>
+                        </form>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="table-items">Book 2</td>
+                    <td class="table-items">Author 2</td>
+                    <td class="table-items">Non-Fiction</td>
+                    <td class="table-items no-color">No</td>
+                    <td class="table-items">
+                        <form method="post" action="/books/borrow">
+                            <input name="_method" type="hidden" value="PATCH" />
+                            <input name="bookId" type="hidden" value="2" />
+                            <button type="submit" class="button-outlined-blue">Borrow</button>
+                        </form>
+                    </td>
+                </tr>
+
+            </table>
+
+
+        </div>
+
+
+
+        <br>
+        <div class="table-title">
+            <h2>MY BOOKS</h2>
+        </div>
+
+        <div class="table-card">
+
+            <!-- MOCK DATA -->
+
+            <table class="table_main">
+                <tr>
+                    <th class="table-header">Title&nbsp;</th>
+                    <th class="table-header">Author&nbsp;</th>
+                    <th class="table-header">Genre&nbsp;</th>
+                </tr>
+                <tr class="table-divider"></tr>
+
+
+                <!-- Hardcoded Data Row 1 -->
+                <tr>
+                    <td class="table-items">Book 1</td>
+                    <td class="table-items">Author 1</td>
+                    <td class="table-items">Fiction</td>
+                    <td class="table-items">
+                        <form method="post" action="/books/return">
+                            <input name="_method" type="hidden" value="PATCH" />
+                            <input name="bookId" type="hidden" value="1" />
+                            <button type="submit" class="button-outlined-blue">Return</button>
+                        </form>
+                    </td>
+                </tr>
+
+                <!-- Hardcoded Data Row 2 -->
+                <tr>
+                    <td class="table-items">Book 2</td>
+                    <td class="table-items">Author 2</td>
+                    <td class="table-items">Non-Fiction</td>
+                    <td class="table-items">
+                        <form method="post" action="/books/return">
+                            <input name="_method" type="hidden" value="PATCH" />
+                            <input name="bookId" type="hidden" value="2" />
+                            <button type="submit" class="button-outlined-blue">Return</button>
+                        </form>
+                    </td>
+                </tr>
+
+                <!-- Add more hardcoded data rows as needed -->
+            </table>
+
+        </div>
+
+        <br>
+
+        <form method="post" th:action="@{/userdelete}">
+            <input name="_method" type="hidden" value="DELETE" />
+
+            <button class="button-outlined-red" type="submit">Close Account</button>
+        </form>
+    </div>
+    <footer>
+        <h1 class="white-text">Bookkeeper</h1>
+        <h3 class= "white-text italic"><i>Explore by reading!</i></h3>
+    </footer>
+
+</body>
+
+</html>

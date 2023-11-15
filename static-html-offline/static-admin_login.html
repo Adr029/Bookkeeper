@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>Admin Login</title>
+    <!--* local stylesheet -->
+
+    <link rel="stylesheet" href="../src/main/resources/static/style.css">
+
+    <!-- Tab Icon -->
+    <link rel="icon" href="../src/main/resources/static/images/icon-tab.png">
+</head>
+
+<body class="body_login">
+    <div class="login_center">
+        <img src="../src/main/resources/static/images/icon-dark.png" width="170px" alt="bookkeeper icon">
+        <h1 class="center middle"> Welcome to Bookeeper! </h1>
+        <h2 class="center middle">Log in as Admin</h2>
+
+        <div class="login-form">
+            <form method="post" th:action="@{/adminlogin}">
+                <span class="form-header"> Username </span> <input name="username" type="text"
+                    class="input-field margin-bottom" /> <br>
+                <span class="form-header"> Password</span> <input name="password" type="password"
+                    class="input-field margin-bottom" />
+
+
+            </form>
+            <a href="static-admin.html">
+                <button class="center middle button-filled-blue" type="submit">Log in</button>
+            </a>
+        </div>
+
+
+
+        <p class="center middle">
+            <a href="static-login.html" class="link-text"> Log in as User</a>
+        </p>
+
+    </div>
+</body>
+
+</html>
