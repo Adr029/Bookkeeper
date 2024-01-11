@@ -14,7 +14,7 @@
 
 
 Bookkeeper is a simple library management system I created to learn about the Spring framework along with the basics of frontend web development. 
-The system is heavily under development, especially the frontend part, and you may view my progress and future plans on [Trello](https://trello.com/b/GoLZJhWn/bookkeeper).
+The system is heavily under development, especially the frontend part, although currently, no changes are planned yet.
 
 For ease of viewing, static HTML files are provided in the "*static-html-offline*" folder to view the concept without having to setup a Spring environment.
 
